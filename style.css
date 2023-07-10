@@ -1,0 +1,408 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url(fonts/style/Montserrat-Regular.ttf) format(truetype);
+}
+
+* {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    z-index: 5;
+    box-sizing: border-box;
+    color: black;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular';
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a,
+a.active a:hover {
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    background-color:rgb(187, 8, 8);
+}
+
+.block {
+    margin: 50px;
+    background-color:rgb(179, 172, 172);
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px; 
+}
+
+main {
+    min-height: calc(100vh - (124px));
+}
+
+/*=============================================== HEADER====================================================== */
+header{
+    z-index: 6;
+}
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+    align-items: center;
+}
+.header__menu{
+    display: flex;
+    align-items: center;
+   gap:50px;
+}
+.header__list.show{
+    display: none;
+}
+.header__list{
+    display: flex;
+    gap:15px;
+    align-items: center;
+}
+.header__menu__list {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+.header__menu__item a.active {
+    color: rgb(187, 8, 8);
+    border-bottom: 2px solid rgb(241, 241, 241);
+    font-weight: bold;
+}
+.header__logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(187, 8, 8);
+}
+
+span.mdi-cart-variant {
+    font-size: 20px;
+}
+
+span.mdi-lock-off-outline {
+    font-size: 20px;
+}
+
+span.mdi-magnify {
+    font-size: 20px;
+    padding: 0 0 0 8px;
+}
+
+.menu__item {
+    display: flex;
+    border: 1px solid rgb(187, 8, 8);
+    background-color: rgb(187, 8, 8); 
+    padding: 5px;
+    border-radius: 35px;
+    align-items: center;
+}
+
+.menu__item input {
+    outline: none;
+    background-color: rgb(187, 8, 8); 
+    border: none;
+    padding: 0 0 0 15px;
+    width: 100%;
+}
+/* ===========================================  MENU HAMBURGER =============================================*/
+.menu__hamburger{
+    width: 50px;
+    height: 30px;
+    display: none;
+}
+.menu__hamburger span {
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in;
+}
+
+.menu__hamburger span::after,
+.menu__hamburger span::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    left:50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in;
+}
+
+.menu__hamburger span::after {
+    top: -8px;
+}
+
+.menu__hamburger span::before {
+    bottom: -8px;
+}
+.menu__hamburger.active span{
+    background-color: transparent;
+}
+.menu__hamburger.active span::after{
+    top:0;
+    transform: translateX(-50%) rotate(45deg);
+}
+.menu__hamburger.active span::before{
+    bottom:0;
+    transform: translateX(-50%) rotate(-45deg);
+}
+@media(max-width:991px){
+    .header__menu__list{
+       display: none;     
+        flex-direction: column;
+        justify-content: center;
+        position: absolute; 
+        width: 100%;
+        background-color: rgb(35, 14, 14);
+        border-radius: 9px;
+        top:7rem;
+        padding: 15px; 
+    }
+    .header__menu__list.active{
+        display: flex;
+        padding: 15px;
+    }
+    .menu__hamburger{
+        display: block;
+    }
+    .show{
+        display: none;
+    } 
+}
+@media(max-width:600px){
+    .header__list{
+        display: none;
+    } 
+    .header__menu{
+        width: 100%;
+    }
+    .header__list.show{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+/*============================================ BANNER ==========================================*/
+/*============================================ BANNER TOP ==========================================*/
+.banner__top {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+ 
+@media(max-width:991px) {
+    .banner__top {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+ 
+/*============================================= BANNER TOP LEFT ===========================================*/
+.banner__top__left {
+    width: calc(100% - 500px);
+}
+
+.top__left h1 {
+    font-size: 50px;
+}
+
+.top__left p {
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+.top__left__item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.top__left__item button {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 2px solid rgb(187, 8, 8);
+    color: rgb(187, 8, 8);
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+ @media(max-width:991px){
+    .banner__top__left{
+        margin-top: 25px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       gap:50px; 
+       width: 100%;
+    }
+}
+@media(max-width:575px){
+    .top__left__item{
+        display: flex;
+        flex-direction: column;
+    }
+}
+/*============================================= BANNER TOP RIGHT===========================================*/
+.banner__top__right {
+    width: 500px;
+    height: 400px;
+}
+
+.banner__top__right img {
+    width: 100%;
+   height: 100%;
+}
+/*============================================= BANNER BOTTOM===========================================*/
+.banner__bottom__left {
+    display: flex;
+   justify-content: space-around;
+}
+
+.banner__bottom {
+    padding: 40px 0;
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+}
+
+.bottom__img {
+    width: 110px;
+}
+
+.bottom__img img {
+    width: 100px;
+    height: 90px;
+}
+
+.bottom__left__item h4 {
+    margin-top: 15px;
+}
+
+@media(max-width:991px){
+    .banner__bottom__left{
+       flex-wrap: wrap;
+    }
+} 
+@media(max-width:433px){
+    .banner__bottom{
+        flex-direction: column;
+    }
+    .banner__bottom__right{
+        margin-top:15px;
+    }
+}
+/*============================================= BANNER BOTTOM RIGHT===========================================*/
+.banner__bottom__right button {
+    padding: 5px 30px;
+    border-radius: 9px;
+    background-color: white;
+    border: 2px solid rgb(187, 8, 8);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner__bottom__right button a {
+    margin-top: 8px;
+    color: rgb(187, 8, 8);
+    white-space: nowrap;
+}
+
+.banner__bottom__right button span {
+    font-size: 25px;
+    color: black;
+}
+/*=============================++> SEARCH MODAL <++===============================*/
+
+.search__modal{
+    width: 100%;
+    height:100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #550101b5;
+    z-index:6;
+    border: 2px solid black;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+} 
+ .search__modal.active{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.search__modal input{
+    height: 40px;
+    border-radius: 35px 0 0 35px;
+    border:none;
+    padding-left: 15px;
+    color:#434343;
+    outline: none;
+}
+
+.search__modal button{
+    border-radius: 0 35px 35px 0;
+    padding:7.5px 22px;
+    border:none;
+    background-color:black;
+    color:#fff;
+    font-weight: bold;
+    cursor: pointer;
+    height: 40px;
+}
+.search__modal a{
+    position: absolute; 
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    top: 30px;
+    right: 30px;
+}
+
+.search__modal a::after, .search__modal a::before{
+    content: '';
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+
+}
+.search__modal a::after{
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.search__modal a::before{
+    transform: translate(-50%, -50%) rotate(45deg);
+} 
